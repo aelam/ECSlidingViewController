@@ -52,7 +52,11 @@
     UIViewController *topViewController = [transitionContext viewControllerForKey:ECTransitionContextTopViewControllerKey];
     CGFloat finalLeftEdge = CGRectGetMinX([transitionContext finalFrameForViewController:topViewController]);
     CGFloat initialLeftEdge = CGRectGetMinX([transitionContext initialFrameForViewController:topViewController]);
+#ifdef CGFLOAT_IS_DOUBLE
+    CGFloat fullWidth = fabs(finalLeftEdge - initialLeftEdge);
+#else
     CGFloat fullWidth = fabsf(finalLeftEdge - initialLeftEdge);
+#endif
     
     self.positiveLeftToRight = initialLeftEdge < finalLeftEdge;
     self.fullWidth           = fullWidth;

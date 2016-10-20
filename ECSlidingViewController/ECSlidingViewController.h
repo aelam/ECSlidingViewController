@@ -303,4 +303,8 @@
  */
 @property (nonatomic, assign) NSTimeInterval defaultTransitionDuration;
 
+@property(nonatomic, readonly) CGAffineTransform targetTransform NS_AVAILABLE_IOS(8_0);
+
+@property(nonatomic,readonly) BOOL isInterruptible NS_AVAILABLE_IOS(10_0);
+
 @end
